@@ -1,0 +1,87 @@
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f5f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background-color: #ffffff;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+    
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #19796A;
+      box-shadow: 0 0 0 2px rgba(25, 121, 106, 0.2);
+    }
+
+    .form-group .checkbox {
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    .form-group .checkbox input {
+      margin-right: 0.5rem;
+    }
+
+    .register-btn {
+      width: 100%;
+      background-color: #19796A;
+      color: white;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .register-btn:hover {
+      background-color: #145f54;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-footer a {
+      color: #19796A;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
