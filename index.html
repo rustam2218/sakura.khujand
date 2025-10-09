@@ -1,178 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sakura.khujand</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="navbar">
-        <div class="icons">
-            <a href="#">
-            <img src="img/search 1.svg" alt="search"></a>
-            <a href="#">
-              <img src="img/shopping-cart 1.svg" alt="shopping-cart">
-            </a>
-            
-            <a href="registration form.html">
-              <img src="img/Frame 1.svg" alt="Frame1">
-            </a>
-        </div>
-        
-    </header>
-    <main class="container">
-        <div class="plantphoto">
-            <img src="img/Mask Group.svg" alt="">
-        </div>
-        <div class="text">
-            <h1>Добро пожаловать в интернет магазин комнатных растений
-                            <br>SAKURA.KHUJAND</h1>
-            <p>Sakura — интернет-магазин комнатных растений
-            Мы помогаем создавать уют и гармонию в доме с помощью живых растений. У нас вы найдёте:
-            🌿 Красивые и неприхотливые растения для дома и офиса.
-            🌸 Цветущие растения, которые украсят интерьер и поднимут настроение.
-            🌱 Стильные кашпо и аксессуары для ухода.
-            💧 Советы по уходу за каждым растением.
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-            Мы верим, что каждое растение приносит в дом тепло, свежесть и вдохновение. Наши специалисты отбирают только здоровые и качественные растения, чтобы они радовали вас долгое время.
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.4.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.4.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.4.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-            <br><br>Sakura — вдохновляйся природой каждый день!</p>
-            
-            
-        </main>
-        <section class="features">
-       <div class="feature-box">
-       <img src="img/fast 1.svg" alt="Fast Delivery">
-       <div class="feature-title">Быстрая доставка</div>
-       <div class="feature-text">С Sakura вы получаете не просто растения — вы получаете радость без ожидания</div>
-       </div>
-
-       <div class="feature-box">
-       <img src="img/headphones 1.svg" alt="">
-       <div class="feature-title">Консультация от профессионалов</div>
-       <div class="feature-text">В Sakura вы не просто покупаете растения — вы получаете поддержку от команды, которая знает о зелени всё</div>
-       </div>
-
-       <div class="feature-box">
-       <img src="img/plant 1.svg" alt="Original Plants">
-       <div class="feature-title">Оригинальные растения</div>
-       <div class="feature-text">Хотите что-то, что удивит гостей и порадует глаз? Наши оригинальные растения — это живое искусство, которое не требует слов.</div>
-       </div>
-
-       <div class="feature-box">
-       <img src="img/dollar-symbol 1.svg" alt="Affordable Price">
-       <div class="feature-title">Приемлемые цены</div>
-       <div class="feature-text">Мы верим, что уют не должен быть дорогим</div>
-       </div>
-   </section>
-   
-   <section>
-    <div class="section-header">
-      <h2>Рекомендуемые растения</h2>
-      <select>
-        <option>Подешевле</option>
-        <option>Подороже</option>
-      </select>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
-    <hr>
-    <div class="products">
-      <div class="product-card">
-        <a href="#">
-          <img src="img/Mask Group (1).svg" alt="Кактус">
-          <div class="product-name">Кактус</div>
-          <div class="product-price">85 TJS</div>
-        </a>
-      </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-      <div class="product-card">
-        <a href="#">
-          <img src="img/Mask Group (2).svg" alt="Зебра-суккулент">
-          <div class="product-name">Зебра-суккулент</div>
-          <div class="product-price"> 105 TJS</div>
-        </a>
-      </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-      <div class="product-card">
-        <a href="#">
-          <img src="img/Mask Group (3).svg" alt="Кактус старичок">
-          <div class="product-name">Кактус старичок</div>
-          <div class="product-price"> 85 TJS</div>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="#">
-          <img src="img/Mask Group (4).svg" alt="Kecubung">
-          <div class="product-name">Язык волка</div>
-          <div class="product-price"> 110 TJS</div>
-        </a>
-      </div>
-
-      <div class="product-card">
-        <a href="#">
-          <img src="img/Mask Group (5).svg" alt="Зебра-суккулент">
-          <div class="product-name">Зебра-суккулент</div>
-          <div class="product-price"> 95 TJS</div>
-        </a>
-      </div>
-    </div>
-    
-    <div class="container">
-    <div class="text-column">
-      <h1>Sakura — ваш уютный оазис зелени прямо дома 🌸</h1>
-      <p>
-      🌿 Sakura — интернет-магазин комнатных растений с душой 🌸  Наш магазин — это место, где каждый может найти идеальное растение для своего интерьера, настроения и образа жизни.
-      <br> Упаковка, подходящая для подарка — потому что растения дарят радость.
-
-      🌱 Sakura — это не просто покупки, это путь к уюту, гармонии и живой атмосфере в вашем доме.
-      </p>
-    </div>
-    <div class="image-column"></div>
-  </div>
-
-  </section>
-
-  <section class="shop-banner">
-    <div class="shop-text">
-      <h1>Приобретите ваши любимые растения в нашем магазине <br> прямо сейчас!</h1>
-      <a href="#" class="btn">посетить магазин</a>
-    </div>
-    <div class="shop-image">
-      <img src="img/sanni-sahil-Y71kWrdt14k-unsplash 1.svg" alt="Plant in hand">
-    </div>
-  </section>
-
-   <footer class="footer">
-    <div class="footer-column">
-      <span class="logo">Sakura Khujand</span>
-      <p>
-        Наши контакты<br>
-        +992-92-838-23-33<br>
-        Наша почта
-        sakura.khujand@gmail.com
-      </p>
-    </div>
-
-    <div class="footer-column">
-      <h4>Мы в социальных сетях</h4>
-      <p><a href="https://www.instagram.com/sakura_khujand?igsh=NXh6eTZqNHkwYWZ1">Instagram: sakura_khujand</a></p>
-      <p><a href="https://t.me/sakurakhujand">Telegram: Sakura Khujand</a></p>
-      <p><a href="#">Whatsapp: 928382333</a></p>
-    </div>
-
-    <div class="footer-column">
-      <h4>Продукт</h4>
-      <p><a href="#">Растение</a></p>
-      <p><a href="#">Другие растения</a></p>
-    </div>
-
-    <div class="footer-column">
-      <h4>Подпишитесь на нашу рассылку</h4>
-      <label for="email">Введите адрес электронной почты</label><br>
-      <input type="email" id="email" class="subscribe-input" placeholder="Введите адрес электронной почты">
-    </div>
-  </footer>
-</body>
-
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
