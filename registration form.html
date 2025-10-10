@@ -4,43 +4,70 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style2.css">
     <title>Регистрация</title>
-    <meta name="viewport" content="width= div class="register-container>
-    <form>
-      <div class="form-group">
-        <label for="fullname">Полное имя</label>
-        <input type="text" id="fullname" name="fullname" placeholder="Ваше имя" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Электронная почта</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Пароль</label>
-        <input type="password" id="password" name="password" placeholder="Минимум 6 символов" required>
-      </div>
-
-      <div class="form-group">
-        <label for="confirm-password">Подтвердите пароль</label>
-        <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторите пароль" required>
-      </div>
-
-      <div class="form-group checkbox">
-        <input type="checkbox" id="terms" required>
-        <label for="terms">Я принимаю <a href="#">условия использования</a></label>
-      </div>
-
-      <button type="submit" class="register-btn">Зарегистрироваться</button>
-
-      <div class="form-footer">
-        Уже есть аккаунт? <a href="#">Войти</a>
-      </div>
-    </form>
-  </div>
-    <title>Document</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<form>
+  <div class="form-group">
+    <label for="fullname">Полное имя</label>
+    <input type="text" id="fullname" name="fullname" placeholder="Ваше имя" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Электронная почта</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password" placeholder="Минимум 6 символов" required>
+  </div>
+
+  <div class="form-group">
+    <label for="confirm-password">Подтвердите пароль</label>
+    <input type="password" id="confirm-password" name="confirm-password" placeholder="Повторите пароль" required>
+  </div>
+
+  <div class="form-group checkbox">
+    <input type="checkbox" id="terms" required>
+    <label for="terms">Я принимаю <a href="#">условия использования</a></label>
+  </div>
+
+  <button type="submit" class="register-btn">Зарегистрироваться</button>
+
+  <div id="g_id_onload"
+       data-client_id="951971411963-h0bofla98l3u281lqje8vddlbch5mc7j.apps.googleusercontent.com"
+       data-context="signin"
+       data-ux_mode="popup"
+       data-callback="handleCredentialResponse"
+       data-auto_prompt="false">
+  </div>
+
+  <div class="g_id_signin"
+       data-type="standard"
+       data-size="large"
+       data-theme="outline"
+       data-text="sign_in_with"
+       data-shape="rectangular">
+  </div>
+
+  <script>
+    function handleCredentialResponse(response) {
+      const data = parseJwt(response.credential);
+      console.log("User data:", data);
+      document.getElementById("email").value = data.email;
+      document.getElementById("name").value = data.name;
+    }
+
+    function parseJwt(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = decodeURIComponent(atob(base64Url).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      ).join(''));
+      return JSON.parse(base64);
+    }
+  </script>
+</form>
 </body>
 </html>
