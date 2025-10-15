@@ -310,4 +310,40 @@ body {
       .footer-column {
         margin-bottom: 2rem;
       }
+
     }
+      .g_id_signin {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 9%;
+      padding-right: 14%;
+      
+    }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    margin-left: 10px;
+    margin-top: 1.7%;
+  }
+  .logout-btn {
+    background-color: #2d6d35;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .logout-btn:hover {
+    background-color: #d1c4c4;
+  }
+
+  .logout-btn:active {
+    transform: scale(0.98);
+  }
