@@ -10,75 +10,134 @@
 <body>
   <header class="navbar">
     <div class="icons">
-      <a href="#"><img src="img/search 1.svg" alt="Поиск"></a>
-      <a href="#"><img src="img/shopping-cart 1.svg" alt="Корзина"></a>
+      <a href="catalog.html"><img src="img/search 1.svg" alt="Поиск"></a>
+      <a href="catalog.html"><img src="img/shopping-cart 1.svg" alt="Корзина"></a>
+    </div>
+    
+
+      <div id="googleSignInBtn">
+        <div id="g_id_onload"
+             data-client_id="951971411963-h0bofla98l3u281lqje8vddlbch5mc7j.apps.googleusercontent.com"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+  
+        <div class="g_id_signin"
+             data-type="standard"
+             data-size="large"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-shape="rectangular">
+        </div>
+      </div>
+      <div class="user-info" id="userInfo" style="display: none;">
+        <span id="userName"></span>
+        <button id="logoutBtn" class="logout-btn">Выйти</button>
+      </div>
+      </header>
+      <script>
+  const adminEmails = ["sakura.khujand@gmail.com", "rustam.n182@gmail.com"]; // список админов
+
+  function handleCredentialResponse(response) {
+    const data = parseJwt(response.credential);
+    console.log("User data:", data);
+
+    localStorage.setItem("userName", data.name);
+    localStorage.setItem("userEmail", data.email);
+
+    // Проверяем, является ли пользователь админом
+    if (adminEmails.includes(data.email)) {
+      localStorage.setItem("role", "admin");
+      alert("Добро пожаловать, администратор!");
+    } else {
+      localStorage.setItem("role", "user");
+    }
+
+    showUserName(data.name);
+    window.location.href = "/index2.html";
+  }
+
+  function parseJwt(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = decodeURIComponent(atob(base64Url).split('').map(c =>
+      '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+    ).join(''));
+    return JSON.parse(base64);
+  }
+
+  function showUserName(name) {
+    document.getElementById("googleSignInBtn").style.display = "none";
+    document.getElementById("userInfo").style.display = "block";
+    document.getElementById("userName").textContent = `Здравствуйте, ${name}!`;
+  }
+
+  function logout() {
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("role");
+    document.getElementById("googleSignInBtn").style.display = "block";
+    document.getElementById("userInfo").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", logout);
+
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+      showUserName(savedName);
+    }
+  });
+</script>
+
+    
+      <script>
+        function handleCredentialResponse(response) {
+          const data = parseJwt(response.credential);
+          console.log("User data:", data);
+    
+          localStorage.setItem("userName", data.name);
+          localStorage.setItem("userEmail", data.email);
+          showUserName(data.name);
+          window.location.href = "/index2.html";
+        }
+    
+        function parseJwt(token) {
+          const base64Url = token.split('.')[1];
+          const base64 = decodeURIComponent(atob(base64Url).split('').map(c =>
+            '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+          ).join(''));
+          return JSON.parse(base64);
+        }
+    
+        function showUserName(name) {
+          document.getElementById("googleSignInBtn").style.display = "none";
+          document.getElementById("userInfo").style.display = "block";
+          document.getElementById("userName").textContent = `Здравствуйте, ${name}!`;
+        }
+    
+        function logout() {
+          localStorage.removeItem("userName");
+          document.getElementById("googleSignInBtn").style.display = "block";
+          document.getElementById("userInfo").style.display = "none";
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+          const logoutBtn = document.getElementById("logoutBtn");
+          logoutBtn.addEventListener("click", logout);
+    
+          const savedName = localStorage.getItem("userName");
+          if (savedName) {
+            showUserName(savedName);
+          }
+        });
+      </script>
+    
     </div>
 
-    <div id="googleSignInBtn">
-      <div id="g_id_onload"
-           data-client_id="951971411963-h0bofla98l3u281lqje8vddlbch5mc7j.apps.googleusercontent.com"
-           data-context="signin"
-           data-ux_mode="popup"
-           data-callback="handleCredentialResponse"
-           data-auto_prompt="false">
-      </div>
 
-      <div class="g_id_signin"
-           data-type="standard"
-           data-size="large"
-           data-theme="outline"
-           data-text="sign_in_with"
-           data-shape="rectangular">
-      </div>
-    </div>
-
-  <div class="user-info" id="userInfo" style="display: none;">
-    <span id="userName"></span>
-    <button id="logoutBtn" class="logout-btn">Выйти</button>
-  </div>
-  </header>
-
-  <script>
-    function handleCredentialResponse(response) {
-      const data = parseJwt(response.credential);
-      console.log("User data:", data);
-
-      localStorage.setItem("userName", data.name);
-      showUserName(data.name);
-    }
-
-    function parseJwt(token) {
-      const base64Url = token.split('.')[1];
-      const base64 = decodeURIComponent(atob(base64Url).split('').map(c =>
-        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-      ).join(''));
-      return JSON.parse(base64);
-    }
-
-    function showUserName(name) {
-      document.getElementById("googleSignInBtn").style.display = "none";
-      document.getElementById("userInfo").style.display = "block";
-      document.getElementById("userName").textContent = `Здравствуйте, ${name}!`;
-    }
-
-    function logout() {
-      localStorage.removeItem("userName");
-      document.getElementById("googleSignInBtn").style.display = "block";
-      document.getElementById("userInfo").style.display = "none";
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const logoutBtn = document.getElementById("logoutBtn");
-      logoutBtn.addEventListener("click", logout);
-
-      const savedName = localStorage.getItem("userName");
-      if (savedName) {
-        showUserName(savedName);
-      }
-    });
-  </script>
-
-</div>
 
     </header>
     <main class="container">
@@ -145,7 +204,7 @@
         <hr>
         <div class="products">
           <div class="product-card">
-            <a href="#">
+            <a href="catalog.html">
               <img src="img/Mask Group (1).svg" alt="Kaktus">
               <div class="product-name">Кактус</div>
               <div class="product-price">85 TJS</div>
@@ -153,7 +212,7 @@
           </div>
 
           <div class="product-card">
-            <a href="#">
+            <a href="catalog.html">
               <img src="img/Mask Group (2).svg" alt="Landak">
               <div class="product-name">Зебра-суккулент</div>
               <div class="product-price"> 105 TJS</div>
@@ -161,7 +220,7 @@
           </div>
 
           <div class="product-card">
-            <a href="#">
+            <a href="catalog.html">
               <img src="img/Mask Group (3).svg" alt="Kecubung">
               <div class="product-name">Кактус старичок</div>
               <div class="product-price"> 85 TJS</div>
@@ -169,7 +228,7 @@
           </div>
 
           <div class="product-card">
-            <a href="#">
+            <a href="catalog.html">
               <img src="img/Mask Group (4).svg" alt="Kecubung">
               <div class="product-name">Язык волка</div>
               <div class="product-price"> 110 TJS</div>
@@ -177,7 +236,7 @@
           </div>
 
           <div class="product-card">
-            <a href="#">
+            <a href="catalog.html">
               <img src="img/Mask Group (5).svg" alt="Kecubung">
               <div class="product-name">Зебра-суккулент</div>
               <div class="product-price"> 95 TJS</div>
@@ -208,7 +267,7 @@
         <div class="shop-text">
           <h1>Приобретите ваши любимые растения в нашем магазине <br> прямо
             сейчас!</h1>
-          <a href="#" class="btn">посетить магазин</a>
+          <a href="index2.html" class="btn">посетить магазин</a>
         </div>
         <div class="shop-image">
           <img src="img/sanni-sahil-Y71kWrdt14k-unsplash 1.svg"
