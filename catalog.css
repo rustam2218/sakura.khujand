@@ -1,0 +1,440 @@
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f5f7;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+  
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: 0 0 220px;
+      background-color: #e7f0de;
+      border-radius: 10px;
+      padding: 20px 25px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #496636;
+      height: auto;
+
+    }
+    .sidebar h3 {
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    .sidebar ul li {
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .sidebar ul li:hover {
+      color: #7fa050;
+    }
+
+    .catalog {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+      gap: 30px;
+    }
+
+    .plant-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s;
+      position: relative;
+    }
+    .plant-card:hover {
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.15);
+    }
+
+    .plant-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+    .plant-info {
+      padding: 12px 14px 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plant-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #2c3e24;
+      margin-bottom: 6px;
+    }
+    .plant-price {
+      font-weight: 700;
+      color: #4a7323;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .description {
+      font-size: 0.85rem;
+      color: #555;
+      flex-grow: 1;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 5px;
+      border-top: 1px solid #eee;
+      background-color: #fafafa;
+      gap: 5px;
+    }
+    .actions button {
+      background-color: #7fa050;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background-color 0.3s;
+    }
+    .actions button:hover {
+      background-color: #5d7538;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: #7fa050;
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        max-width: 95%;
+      }
+      .sidebar {
+        flex: none;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .catalog {
+        grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+      }
+    }
+    h1 {
+      text-align: center;
+      color: #4a7323;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+    .plant-catalog {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .plant-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgb(178 34 34 / 0.15);
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      width: 20%;
+      height: 20%;
+    }
+    .plant-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgb(178 34 34 / 0.3);
+    }
+    .plant-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 3px solid #4a7323;
+    }
+    .plant-content {
+      padding: 15px 20px 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .plant-content h2 {
+      margin: 0 0 6px 0;
+      color: #4a7323;
+      font-size: 1.4rem;
+    }
+    .plant-content h3 {
+      margin: 0 0 12px 0;
+      font-style: italic;
+      font-weight: 400;
+      color: #666;
+      font-size: 1rem;
+    }
+    .plant-content p {
+      margin: 6px 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+    .plant-content p strong {
+      color: #4a7323;
+    }
+    .price {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #4a7323;
+      margin-top: 12px;
+      text-align: right;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 800px) {
+      .plant-item {
+        width: 100%;
+      }
+    }
+
+      .add-new-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 700;
+    color: #7fa050;
+    cursor: pointer;
+    border: 2px dashed #7fa050;
+    user-select: none;
+  }
+  .modal {
+    position: fixed;
+    top: 0; left: 0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+  }
+
+  .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #f7f7f2;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 15%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #496636;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #2c3e24;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: #7fa050;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.form-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #7fa050;
+  color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background-color: #496636;
+}
+
+.form-buttons button#cancel-btn {
+  background-color: #e7f0de;
+  color: #496636;
+}
+
+.form-buttons button#cancel-btn:hover {
+  background-color: #d0e0c0;
+}
+
+.add-new-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7fa050;
+  background-color: #f0f7e8;
+  border: 2px dashed #7fa050;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.add-new-card:hover {
+  background-color: #e7f0de;
+  color: #496636;
+}
+
+.add-center {
+  text-align: center;
+}
+
+.add-to-cart {
+  background-color: #5fa86a;          /* зелёный — основной цвет сайта */
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+  background-color: #4a8f57;          /* чуть темнее при наведении */
+  transform: scale(1.05);
+}
+
+.add-to-cart:active {
+  transform: scale(0.97);
+  background-color: #3f7e4b;
+}
+
+.add-to-cart:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(95, 168, 106, 0.4);
+}
+
+.search-bar {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#searchInput {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#searchInput:focus {
+  border-color: #76b852;
+  outline: none;
+  box-shadow: 0 0 5px rgba(118, 184, 82, 0.5);
+}
+
+/* Анимация карточек при показе/скрытии */
+.plant-card {
+  transition: opacity 200ms ease, transform 200ms ease;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Класс для скрытия карточки плавно */
+.plant-card.hidden {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none; /* чтобы не было кликабельности у скрытых карточек */
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Сообщение "Ничего не найдено" */
+#not-found-msg {
+  text-align: center;
+  padding: 18px;
+  color: #666;
+  font-size: 16px;
+}
+
+  

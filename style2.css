@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  color: #1e1e1e;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e8b57;
+}
+
+.nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  margin: 20px;
+}
+
+.hero-text {
+  max-width: 50%;;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.catalog-btn {
+  display: inline-block;
+  background-color: #63926f;
+  padding: 10px 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.catalog-btn:hover {
+  background-color: #ddd;
+}
+
+.hero-image img {
+  max-height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  margin: 30px 60px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  max-width: 300px;
+  text-align: center;
+  margin: 10px;
+}
+
+.category-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.category-card h2 {
+  font-size: 24px;
+  margin: 15px 0 5px;
+}
+
+.category-card p {
+  font-size: 16px;
+  color: #444;
+}
+
+.plant-catalog {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.plant-card {
+  text-align: center;
+}
+
+.plant-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 12px 0 6px;
+}
+
+.price {
+  font-size: 16px;
+}
+
+h1 {
+  margin-left: 7%;
+  margin-bottom: 40px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #777;
+}
+

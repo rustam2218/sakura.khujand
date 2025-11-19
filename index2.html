@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all Plants</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+      <header class="header">
+    <div class="logo">Sakura Khujand</div>
+    <nav class="nav">
+      <a href="catalog.html">Каталог</a>
+      <a href="cart.html">Корзина</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Цветы для вашего дома</h1>
+      <p>Растения в кашпо станут красивым и модным дополнением для вашей квартиры или офиса</p>
+      <a href="catalog.html" class="catalog-btn">Перейти в каталог</a>
+    </div>
+    <div class="hero-image"> 
+        <img src="img2/unsplash_Gw_mG8SEe0E.svg" alt="Растение">
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="categories">
+  <div class="category-card">
+    <img src="img2/unsplash_Apuo4j14sls.svg" alt="Фикус">
+    <h2>Фикусы</h2>
+    <p>Эффектные украшения интерьера</p>
+  </div>
+
+  <div class="category-card">
+    <img src="img2/unsplash_Si4PIiajJVU.svg" alt="Суккуленты">
+    <h2>Суккуленты</h2>
+    <p>Маленькие и модные</p>
+  </div>
+
+  <div class="category-card">
+    <img src="img2/unsplash_Jywqr3oSYnk (1).svg" alt="Пальмы">
+    <h2>Пальмы</h2>
+    <p>Элегантный предмет декора</p>
+  </div>
+</section>
+<hr>
+<h1>Наши растения</h1>
+
+<section>
+  <div class="plant-catalog">
+  <div class="plant-card">
+    <img src="img2/unsplash_ngzjG6ZhoDw.svg" alt="Замиокулькас замифолия">
+    <p class="title">Замиокулькас замифолия</p>
+    <p class="price">955 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_WYr1bhT42hc.svg" alt="Суккулент микс D5 H8-10">
+    <p class="title">Суккулент микс D5 H8–10</p>
+    <p class="price">880 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_olvdBsHT1bA.svg" alt="Хамедорея Элеганс">
+    <p class="title">Хамедорея Элеганс</p>
+    <p class="price">1190 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_BS_1XGRkIH4.svg" alt="Фикус Бенж Наташа">
+    <p class="title">Фикус Бенж<br>Наташа</p>
+    <p class="price">1490 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_BJ1ewoSIdF8 (1).svg" alt="Фикус Эластика">
+    <p class="title">Фикус Эластика</p>
+    <p class="price">1090 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_yzPWspWSDm0.svg" alt="Хедера Хеликс микс">
+    <p class="title">Хедера Хеликс микс</p>
+    <p class="price">955 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_m5dVK7tKOwE.svg" alt="Антуриум Андрэ">
+    <p class="title">Антуриум Андрэ</p>
+    <p class="price">860 р/шт</p>
+  </div>
+  <div class="plant-card">
+    <img src="img2/unsplash_DpphPG9ENsI.svg" alt="Диффенбахия">
+    <p class="title">Диффенбахия</p>
+    <p class="price">1200 р/шт</p>
+  </div>
+</div>
+</section>
+<footer class="footer">
+    <p>&copy; 2025 Sakura Khujand. Все права защищены.</p>
+  </footer>
+  <script>
+
+  function parseJwt(token) {
+    const base64Url = token.split('.')[1];
+    const base64 = decodeURIComponent(atob(base64Url).split('').map(c =>
+      '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+    ).join(''));
+    return JSON.parse(base64);
+  }
+
+  function showUserInfo(name) {
+    document.getElementById("googleSignInBtn").style.display = "none";
+    document.getElementById("userInfo").style.display = "block";
+    document.getElementById("userName").textContent = `Здравствуйте, ${name}!`;
+  }
+
+  function logout() {
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail"); // очищаем email при выходе
+    document.getElementById("googleSignInBtn").style.display = "block";
+    document.getElementById("userInfo").style.display = "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", logout);
+
+    const savedName = localStorage.getItem("userName");
+    const savedEmail = localStorage.getItem("userEmail");
+    if (savedName && savedEmail) {
+      showUserInfo(savedName);
+    }
+  });
+
+const allowedAdmins = ["Khalimovp02@gmail.com", "rustam.n1822@gmail.com"];
+const userEmail = localStorage.getItem("userEmail");
+const isAdmin = allowedAdmins.includes(userEmail);
+
+if (!isAdmin) {
+  alert("У вас нет доступа к админским функциям");
+}
+
+</script>
+
+</body>
+</html>
